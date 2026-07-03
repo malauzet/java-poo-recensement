@@ -3,6 +3,7 @@ package fr.diginamic.recensement;
 import java.util.Scanner;
 
 import fr.diginamic.recensement.entites.Recensement;
+import fr.diginamic.recensement.exceptions.*;
 import fr.diginamic.recensement.services.RechercheDepartementsPlusPeuplees;
 import fr.diginamic.recensement.services.RecherchePopulationBorneService;
 import fr.diginamic.recensement.services.RecherchePopulationDepartementService;
@@ -91,6 +92,8 @@ public class Application {
                 }
             } catch (IllegalArgumentException e) {
                 System.out.println("Erreur : " + e.getMessage());
+            } catch (NomException | CodeException e) {
+                throw new RuntimeException(e);
             }
 
         } while (choix != 99);
