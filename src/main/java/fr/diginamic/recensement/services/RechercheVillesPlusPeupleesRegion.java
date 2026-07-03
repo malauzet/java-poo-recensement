@@ -35,8 +35,6 @@ public class RechercheVillesPlusPeupleesRegion extends MenuService {
 
 		List<Ville> villes = recensement.getVilles();
 
-		RegionExiste(nomRegion, villes);
-
 		for (Ville ville : villes) {
 			if (ville.getNomRegion().toLowerCase().startsWith(nomRegion.toLowerCase())) {
 				villesRegions.add(ville);

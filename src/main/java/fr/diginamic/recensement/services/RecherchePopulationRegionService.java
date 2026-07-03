@@ -21,12 +21,10 @@ public class RecherchePopulationRegionService extends MenuService {
 	@Override
 	public void traiter(Recensement rec, Scanner scanner) throws CodeRegionException {
 
-		System.out.println("Quel est le nom (ou le début de nom) de la région recherchée ? ");
+		System.out.println("Quel est le nom (ou le code de région) de la région recherchée ? ");
 		String choix = scanner.nextLine();
 
 		List<Ville> villes = rec.getVilles();
-
-		RegionExiste(choix, villes);
 
 		int somme = 0;
 		String nom = null;

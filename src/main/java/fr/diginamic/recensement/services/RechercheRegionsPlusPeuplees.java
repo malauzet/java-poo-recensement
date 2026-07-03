@@ -33,8 +33,6 @@ public class RechercheRegionsPlusPeuplees extends MenuService {
 		// On récupére la liste des villes du recensement
 		List<Ville> villes = recensement.getVilles();
 
-		RegionExiste(nbRegionsStr, villes);
-
 		// On créé une HashMap pour stocker les régions
 		// - Clé: nom de la région
 		// - Valeur: instance de région

@@ -90,10 +90,8 @@ public class Application {
                         rechercheVillesPlusPeupleesFrance.traiter(recensement, scanner);
                         break;
                 }
-            } catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException | NomException | CodeException e) {
                 System.out.println("Erreur : " + e.getMessage());
-            } catch (NomException | CodeException e) {
-                throw new RuntimeException(e);
             }
 
         } while (choix != 99);
