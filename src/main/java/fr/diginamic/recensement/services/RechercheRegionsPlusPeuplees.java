@@ -10,7 +10,10 @@ import java.util.Scanner;
 import fr.diginamic.recensement.entites.Recensement;
 import fr.diginamic.recensement.entites.Region;
 import fr.diginamic.recensement.entites.Ville;
+import fr.diginamic.recensement.exceptions.CodeRegionException;
 import fr.diginamic.recensement.services.comparators.EnsemblePopComparateur;
+
+import static fr.diginamic.recensement.services.existe.Existe.RegionExiste;
 
 /**
  * Affichage des 10 régions les plus peuplées
@@ -21,7 +24,7 @@ import fr.diginamic.recensement.services.comparators.EnsemblePopComparateur;
 public class RechercheRegionsPlusPeuplees extends MenuService {
 
 	@Override
-	public void traiter(Recensement recensement, Scanner scanner) {
+	public void traiter(Recensement recensement, Scanner scanner) throws CodeRegionException {
 
 		System.out.println("Veuillez saisir un nombre de régions:");
 		String nbRegionsStr = scanner.nextLine();
@@ -29,6 +32,8 @@ public class RechercheRegionsPlusPeuplees extends MenuService {
 
 		// On récupére la liste des villes du recensement
 		List<Ville> villes = recensement.getVilles();
+
+		RegionExiste(nbRegionsStr, villes);
 
 		// On créé une HashMap pour stocker les régions
 		// - Clé: nom de la région

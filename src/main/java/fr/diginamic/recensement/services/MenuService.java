@@ -3,6 +3,9 @@ package fr.diginamic.recensement.services;
 import java.util.Scanner;
 
 import fr.diginamic.recensement.entites.Recensement;
+import fr.diginamic.recensement.exceptions.CodeDeptException;
+import fr.diginamic.recensement.exceptions.CodeRegionException;
+import fr.diginamic.recensement.exceptions.NomVilleException;
 
 /**
  * Classe représentant un service
@@ -19,5 +22,5 @@ public abstract class MenuService {
 	 * @param lignes  lignes du fichier
 	 * @param scanner scanner
 	 */
-	public abstract void traiter(Recensement recensement, Scanner scanner);
+	public abstract void traiter(Recensement recensement, Scanner scanner) throws CodeDeptException, CodeRegionException, NomVilleException, NomVilleException;
 }

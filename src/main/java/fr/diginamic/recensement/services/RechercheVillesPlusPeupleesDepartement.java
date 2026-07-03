@@ -7,7 +7,10 @@ import java.util.Scanner;
 
 import fr.diginamic.recensement.entites.Recensement;
 import fr.diginamic.recensement.entites.Ville;
+import fr.diginamic.recensement.exceptions.CodeDeptException;
 import fr.diginamic.recensement.services.comparators.EnsemblePopComparateur;
+
+import static fr.diginamic.recensement.services.existe.Existe.DepartementExiste;
 
 /**
  * Cas d'utilisation: affichage des N villes les plus peuplées d'une département
@@ -19,7 +22,7 @@ import fr.diginamic.recensement.services.comparators.EnsemblePopComparateur;
 public class RechercheVillesPlusPeupleesDepartement extends MenuService {
 
 	@Override
-	public void traiter(Recensement recensement, Scanner scanner) {
+	public void traiter(Recensement recensement, Scanner scanner) throws CodeDeptException {
 
 		System.out.println("Veuillez saisir un numéro de département:");
 		String nomDept = scanner.nextLine();
@@ -31,6 +34,9 @@ public class RechercheVillesPlusPeupleesDepartement extends MenuService {
 		List<Ville> villesDept = new ArrayList<Ville>();
 
 		List<Ville> villes = recensement.getVilles();
+
+		DepartementExiste(nomDept, villes);
+
 		for (Ville ville : villes) {
 			if (ville.getCodeDepartement().equalsIgnoreCase(nomDept)) {
 				villesDept.add(ville);
@@ -47,5 +53,7 @@ public class RechercheVillesPlusPeupleesDepartement extends MenuService {
 			}
 		} 
 	}
+
+
 
 }
